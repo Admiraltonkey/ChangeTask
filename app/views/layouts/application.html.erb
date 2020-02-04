@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyTask</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">MyTask </h5>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <nav class="my-2 my-md-0 mr-md-3 ">
+      <span class="p-2 text-dark"><%= link_to "Компании", posts_path %> </span>
+      <span class="p-2 text-dark"><%= link_to "Создать Компанию", new_admin_post_path %> </span>
+      <span class="p-2 text-dark"><%= link_to "Категории", admin_categories_path %> </span>
+      <!--      <span class="p-2 text-dark"><%#= link_to "Пользователь", %> </span>-->
+    </nav>
+          <% if user_signed_in? %>
+            <span class="nav-item">
+              <%= link_to "Выход", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </span>
+          <% else %>
+            <span class="nav-item">
+              <%= link_to "Вход", new_user_session_path, class: "nav-link" %>
+            </span>
+            <span class="nav-item">
+              <%= link_to "Регистрация", new_user_registration_path, class: "nav-link" %>
+            </span>
+          <% end %>
+    </div>
+
+    <div class="container main">
+      <div class="row">
+        <div class="col-md-12">
+          <% flash.each do |name, message| %>
+          <div class="alert <%= bootstrap_class_for(name) %>">
+            <button class="close" data-dismiss="alert">&times;</button>
+            <%= message %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-9">
+          <%= yield %>
+        </div>
+        <div class="col-md-3">
+          <%= render 'shared/submenu' %>
+
+          <div class="tag_cloud"></div>
+            <h2>Теги</h2>
+            <% tag_cloud(Tag.counts, %w{tag1 tag2 tag3 tag4 tag5}) do |tag, css_class| %>
+              <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

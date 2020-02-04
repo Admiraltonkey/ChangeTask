@@ -1,0 +1,29 @@
+ru:
+  common:
+    back: 'Назад'
+    errors: 'При заполнении формы возникли ошибки'
+  will_paginate:
+    previous_label: '&larr; Назад'
+    next_label: 'Вперёд &rarr;'
+  posts:
+    index:
+      title: 'Компании'
+  admin:
+    posts:
+      new:
+        title: 'Новая Компания'
+      edit:
+        title: 'Редактирование Компании'
+      form:
+        submit:
+          '%{action} компанию'
+    categories:
+      index:
+        title: 'Категории'
+      new:
+        title: 'Новая категория'
+      edit:
+        title: 'Редактирование категории'
+      form:
+        submit:
+          '%{action} категорию'
