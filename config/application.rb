@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Blog
   class Application < Rails::Application
     config.i18n.default_locale= :ru
+    config.i18n.available_locales = [:ru, :en]
     config.time_zone = 'Europe/Minsk'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2

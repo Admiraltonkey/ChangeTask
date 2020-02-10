@@ -1,6 +1,8 @@
 ru:
   common:
     back: 'Назад'
+    create: "Создать"
+    edit: "Изменить"
     errors: 'При заполнении формы возникли ошибки'
   will_paginate:
     previous_label: '&larr; Назад'

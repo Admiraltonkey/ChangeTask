@@ -1,16 +1,16 @@
-ru:
+en:
   activerecord:
     models:
-      post: 'Компания'
+      post: 'Company'
     attributes:
       post:
-        title: 'Название'
-        summary: 'Краткая статья'
-        body: 'Содержание'
-        all_tags: 'Теги'
+        title: 'Title'
+        summary: 'Summary'
+        body: 'Body'
+        all_tags: 'Tags'
       category:
-        name: 'Название'
-        parent_id: 'Категория родитель'
+        name: 'Title'
+        parent_id: 'Parent category'
     errors:
       messages:
-        blank: 'не может быть пустым'
+        blank: "can't be blank"

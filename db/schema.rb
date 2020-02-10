@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_02_173711) do
+ActiveRecord::Schema.define(version: 2020_02_06_093937) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2020_02_02_173711) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "username"
+    t.text "body"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -35,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_02_02_173711) do
     t.string "image"
     t.text "about"
     t.integer "category_id"
+    t.string "url"
     t.index ["category_id"], name: "index_posts_on_category_id"
   end
 
@@ -66,6 +76,9 @@ ActiveRecord::Schema.define(version: 2020_02_02_173711) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -12,10 +12,10 @@
   <body>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <h5 class="my-0 mr-md-auto font-weight-normal">MyTask </h5>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <%= form_tag posts_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search" %>
+    <% end %>git
     <nav class="my-2 my-md-0 mr-md-3 ">
       <span class="p-2 text-dark"><%= link_to "Компании", posts_path %> </span>
       <span class="p-2 text-dark"><%= link_to "Создать Компанию", new_admin_post_path %> </span>
@@ -34,6 +34,12 @@
               <%= link_to "Регистрация", new_user_registration_path, class: "nav-link" %>
             </span>
           <% end %>
+    <span class = "nav-item <%=' active' if I18n.locale == :ru %>">
+      <%= link_to "RU", {locale: :ru}, class: "nav-link" %>
+    </span>
+    <span class = "nav-item <%=' active' if I18n.locale == :en %>">
+      <%= link_to "EN", {locale: :en}, class: "nav-link" %>
+    </span>
     </div>
 
     <div class="container main">
