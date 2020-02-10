@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_093937) do
+ActiveRecord::Schema.define(version: 2020_02_10_162720) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 2020_02_06_093937) do
     t.integer "category_id"
     t.string "url"
     t.index ["category_id"], name: "index_posts_on_category_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "post_id"
   end
 
   create_table "taggings", force: :cascade do |t|

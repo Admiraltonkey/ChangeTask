@@ -15,6 +15,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'omniauth'
+gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # Use sqlite3 as the database for Active Record

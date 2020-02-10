@@ -14,8 +14,8 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">MyTask </h5>
     <%= form_tag posts_path, :method => 'get' do %>
       <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search" %>
-    <% end %>git
+      <%= submit_tag "Search", class: 'btn btn-primary' %>
+    <% end %>
     <nav class="my-2 my-md-0 mr-md-3 ">
       <span class="p-2 text-dark"><%= link_to "Компании", posts_path %> </span>
       <span class="p-2 text-dark"><%= link_to "Создать Компанию", new_admin_post_path %> </span>

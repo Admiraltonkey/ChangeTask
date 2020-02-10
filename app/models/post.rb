@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   belongs_to :category
+  has_many :reviews
   validates :title, :summary, :body, presence: true
 
   def self.search(search)

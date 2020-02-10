@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     root 'posts#index'
     resources :posts, only: [:show, :index] do
       resources :comments
+      resources :reviews
     end
     resources :tags, only: [:show]
     resources :categories, only: [:show]

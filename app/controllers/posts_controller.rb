@@ -10,6 +10,11 @@ class PostsController < ApplicationController
   end
 
   def show
+    if @post.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @post.reviews.average(:rating).round(2)
+    end
   end
 
   private

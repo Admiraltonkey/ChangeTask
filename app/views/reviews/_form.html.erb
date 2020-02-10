@@ -1,0 +1,13 @@
+<%= form_for([@post, @post.reviews.build]) do |f| %>
+    <div id="rating-form">
+      <label>Rating</label>
+    </div>
+    <%= f.button :submit,class: 'btn btn-primary' %>
+<% end %>
+
+<script>
+    $('#rating-form').raty({
+        path: '/assets/',
+        scoreName: 'review[rating]'
+    });
+</script>
