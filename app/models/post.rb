@@ -1,15 +1,16 @@
 class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   belongs_to :category
+  belongs_to :user
   has_many :reviews
   validates :title, :summary, :body, presence: true
 
   def self.search(search)
     if search
-      where(["title LIKE ?","%#{search}%"])
+      where(["title LIKE ?", "%#{search}%"])
     else
       all
     end

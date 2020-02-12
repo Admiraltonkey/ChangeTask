@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-    devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-    scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+  get '/moon', to: 'application#moon', as: 'moon'
+  get '/sun', to: 'application#sun', as: 'sun'
+  get 'users/show'
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root 'posts#index'
+
+    resources :users
     resources :posts, only: [:show, :index] do
       resources :comments
       resources :reviews

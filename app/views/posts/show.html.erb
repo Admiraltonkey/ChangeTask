@@ -1,9 +1,7 @@
 <%= render 'shared/breadcrumb', category: @post.category %>
-
 <article class="post">
   <section class="post-head">
     <h1><%= @post.title %></h1>
-    <div>Average Rating</div>
     <div class="average-review-rating" data-score="<%= @average_review %>"></div>
     <span>Based on <%= @post.reviews.count %> reviews</span>
     <small>
@@ -12,7 +10,7 @@
         |
         <%= link_to @post.category.name, @post.category %>
       <% end %>
-      <% if user_signed_in? && current_user.admin? %>
+      <% if user_signed_in? %>
         |
         <%= link_to 'Изменить', edit_admin_post_path(@post) %>
         |
@@ -20,20 +18,20 @@
       <% end %>
     </small>
   </section>
-  <%= render @post.reviews %>
-  <div>
-    <%= link_to "Add Review", new_post_review_path(@post) %>
-  </div>
   <section class="post-body">
     <%= image_tag @post.image.url(:large), class: 'img-show' if @post.image? %>
     <%= @post.body.html_safe %>
   </section>
   <section>
     <% if @post.url.present? %>
-    <iframe width="560" height="315" src="<%= @post.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <% end %>
+      <iframe width="560" height="315" src="<%= @post.url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <% end %>
   </section>
 </article>
+<%= render @post.reviews %>
+<div>
+  <%= link_to "Add Review", new_post_review_path(@post) %>
+</div>
 <div>Все коментарии</div>
 <% @post.comments.each do |comment| %>
   <div class='alert alert-light'>
@@ -41,7 +39,7 @@
   </div>
 <% end %>
 <hr>
-<% if user_signed_in?  %>
+<% if user_signed_in? %>
   <div> Добавить коментарий</div>
   <%= form_for([@post, @post.comments.build]) do |f| %>
     <div class="form-group">
@@ -60,13 +58,13 @@
 <% end %>
 
 <script>
-  $('.review-rating').raty({
-      readOnly: true,
-      score: function () {
-        return $(this).attr('data-score');
-      },
-      path: '/assets/'
-  });
+    $('.review-rating').raty({
+        readOnly: true,
+        score: function () {
+            return $(this).attr('data-score');
+        },
+        path: '/assets/'
+    });
 </script>
 
 

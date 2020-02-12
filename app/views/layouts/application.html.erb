@@ -4,23 +4,39 @@
     <title>MyTask</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <% if cookies[:moon] %>
+      <%= stylesheet_link_tag 'application_dark', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% else %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
     <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <div>
+      <% if cookies[:moon] %>
+        <%= button_to 'Light Mode', sun_path, method: :get, class:"btn btn-light" %>
+      <% else %>
+        <%= button_to 'Dark Mode', moon_path, method: :get, class:"btn btn-dark" %>
+      <% end %>
+    </div>
     <h5 class="my-0 mr-md-auto font-weight-normal">MyTask </h5>
     <%= form_tag posts_path, :method => 'get' do %>
       <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", class: 'btn btn-primary' %>
+      <%= submit_tag "Search", class: 'btn btn-success' %>
     <% end %>
     <nav class="my-2 my-md-0 mr-md-3 ">
       <span class="p-2 text-dark"><%= link_to "Компании", posts_path %> </span>
       <span class="p-2 text-dark"><%= link_to "Создать Компанию", new_admin_post_path %> </span>
+      <% if user_signed_in? && current_user.admin? %>
       <span class="p-2 text-dark"><%= link_to "Категории", admin_categories_path %> </span>
-      <!--      <span class="p-2 text-dark"><%#= link_to "Пользователь", %> </span>-->
+        <% end  %>
+
+      <% if user_signed_in? %>
+      <span class="p-2 text-dark"><%= link_to "Пользователь", user_path(id: current_user.id) %> </span>
+        <% end %>
     </nav>
           <% if user_signed_in? %>
             <span class="nav-item">
@@ -41,7 +57,7 @@
       <%= link_to "EN", {locale: :en}, class: "nav-link" %>
     </span>
     </div>
-
+<div class="dark">
     <div class="container main">
       <div class="row">
         <div class="col-md-12">
@@ -62,14 +78,14 @@
           <%= render 'shared/submenu' %>
 
           <div class="tag_cloud"></div>
-            <h2>Теги</h2>
+            <h2 class="green">Теги</h2>
             <% tag_cloud(Tag.counts, %w{tag1 tag2 tag3 tag4 tag5}) do |tag, css_class| %>
               <%= link_to tag.name, tag_path(tag.name), class: css_class %>
             <% end %>
           </div>
         </div>
       </div>
-
+</div>
     </div>
   </body>
 </html>

@@ -2,11 +2,11 @@ class Admin::PostsController < Admin::AdminController
   before_action :set_post, only: [:edit, :update, :destroy]
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to @post, success: 'Компания успешно создана'
     else
