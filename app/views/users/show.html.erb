@@ -1,5 +1,9 @@
 <h1 class="green"><%= @user.email %></h1>
+<%= link_to "Добавить информацию ", new_user_about_path(@user), class: 'btn btn-outline-primary btn-sm' %>
+<%= render @user.abouts %>
 
+
+<h1>Созданные Компании</h1>
 <% @user_posts.each do |post| %>
   <%= link_to post.title, post_path(post) %>
 <% end %>

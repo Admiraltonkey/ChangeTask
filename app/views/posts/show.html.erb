@@ -15,6 +15,8 @@
         <%= link_to 'Изменить', edit_admin_post_path(@post) %>
         |
         <%= link_to ' Удалить', admin_post_path(@post), method: :delete, data: {confirm: 'Вы уверены?'} %>
+        |
+        <%= link_to "Добавить новость", new_post_news_path(@post) %>
       <% end %>
     </small>
   </section>
@@ -36,6 +38,7 @@
 <% @post.comments.each do |comment| %>
   <div class='alert alert-light'>
     <p><strong><%= comment.username %></strong>: <%= comment.body %></p>
+    <%= link_to ' Удалить', [comment.post, comment], method: :delete %>
   </div>
 <% end %>
 <hr>
@@ -47,7 +50,6 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :body %>
       <%= f.text_area :body, class: 'form-control' %>
     </div>
 
@@ -56,6 +58,8 @@
     </div>
   <% end %>
 <% end %>
+<h1>News</h1>
+<%= render @post.news %>
 
 <script>
     $('.review-rating').raty({

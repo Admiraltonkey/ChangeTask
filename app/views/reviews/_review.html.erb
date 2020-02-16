@@ -1,9 +1,9 @@
-<div class="review-rating" data-score="<%= review.rating %>"></div>
+<!--<div class="review-rating" data-score="<%#= review.rating %>"></div>-->
 
 
-<% if user_signed_in? %>
-  <% if review.user_id == current_user.id %>
-    <%= link_to "Edit", edit_post_review_path(review.post, review) %>
-    <%= link_to "Delete", post_review_path(review.post, review), method: :delete, data: {confirm: "Are you sure?"} %>
-  <% end %>
-<% end %>
+<%# if user_signed_in? %>
+  <%# if review.user_id == current_user.id %>
+    <%#= link_to "Edit", edit_post_review_path(review.post, review) %>
+    <%#= link_to "Delete", post_review_path(review.post, review), method: :delete, data: {confirm: "Are you sure?"} %>
+  <%# end %>
+<%# end %>

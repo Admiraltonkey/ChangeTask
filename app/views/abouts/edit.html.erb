@@ -1,0 +1,21 @@
+<h1>Изменение данных</h1>
+
+<%= form_for([@user, @about]) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :surname %>
+    <%= f.text_field :surname, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :data %>
+    <%= f.date_field :data, class: 'form-control' %>
+  </div>
+  <%= f.button :submit,class: 'btn btn-primary' %>
+<% end %>
