@@ -1,19 +1,19 @@
 <%= form_for([@user, @user.abouts.build]) do |f| %>
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :surname %>
     <%= f.text_field :surname, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :city %>
     <%= f.text_field :city, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :data %>
     <%= f.date_field :data, class: 'form-control' %>
   </div>
-  <%= f.button :submit,class: 'btn btn-primary' %>
+  <%= f.submit "Добавить",class: 'btn btn-primary' %>
 <% end %>

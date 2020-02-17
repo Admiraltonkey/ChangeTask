@@ -3,7 +3,7 @@
 <%= render @user.abouts %>
 
 
-<h1>Созданные Компании</h1>
+<h1 class="green">Созданные Компании</h1>
 <% @user_posts.each do |post| %>
   <%= link_to post.title, post_path(post) %>
 <% end %>

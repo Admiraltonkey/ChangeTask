@@ -1,21 +1,21 @@
-<h1>Изменение данных</h1>
+<h1 class="green">Изменение данных</h1>
 
 <%= form_for([@user, @about]) do |f| %>
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :surname %>
     <%= f.text_field :surname, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :city %>
     <%= f.text_field :city, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :data %>
     <%= f.date_field :data, class: 'form-control' %>
   </div>
-  <%= f.button :submit,class: 'btn btn-primary' %>
+  <%= f.submit "Изменить",class: 'btn btn-primary' %>
 <% end %>

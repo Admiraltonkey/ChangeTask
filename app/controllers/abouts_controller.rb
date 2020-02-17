@@ -1,6 +1,6 @@
 class AboutsController < ApplicationController
   before_action :find_user
-  before_action :find_about, only: [:edit, :update]
+  before_action :find_about, only: [:edit, :update, :destroy]
   def new
     @about = About.new
   end
@@ -23,6 +23,10 @@ class AboutsController < ApplicationController
     else
       render 'edit'
     end
+  end
+  def destroy
+    @about.destroy
+    redirect_to user_path(@user)
   end
   private
   def about_params

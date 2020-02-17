@@ -11,41 +11,41 @@
 <% end %>
 
 <%= form_for [:admin, @post], html: {multipart: true} do |f| %>
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group green">
   <%= f.label :summary %>
   <%= f.text_area :summary, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :body %>
     <%= f.trix_editor :body, class: 'editor' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :url %>
     <%= f.text_area :url, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :category_id %>
     <%= f.collection_select :category_id, Category.order(:name), :id, :name, { include_blank: true}, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.label :all_tags %>
     <%= f.text_field :all_tags, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.file_field :image %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group green">
     <%= f.submit t('.submit', action: @post.new_record? ? t('common.create') : t('common.edit')), class: 'btn btn-primary' %>
     <%= link_to t('common.back'), :back, class: 'btn btn-outline-secondary' %>
   </div>

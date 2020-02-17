@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :likes, dependent: :destroy
   has_many :abouts
   has_many :news
   has_many :reviews

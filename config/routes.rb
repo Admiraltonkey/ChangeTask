@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root 'posts#index'
-
+    resources :comments do
+      resources :likes
+    end
     resources :users do
       resources :abouts
     end
