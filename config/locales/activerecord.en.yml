@@ -11,6 +11,16 @@ en:
       category:
         name: 'Title'
         parent_id: 'Parent category'
+        change: 'Change'
+        delete: 'Delete'
+      user:
+        name: "Name"
+        surname: "Surname"
+        city: "City"
+        data: "Date"
+      news:
+        title: 'Title'
+        body: 'Body'
     errors:
       messages:
         blank: "can't be blank"

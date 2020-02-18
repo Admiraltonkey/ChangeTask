@@ -1,4 +1,32 @@
 ru:
+  company:
+    change: 'Изменить'
+    delete: 'Удалить'
+    add_news: 'Добавить новость'
+    reviews: 'Добавить рейтинг'
+    all_comments: 'Все коментарии'
+    delete_comment: 'Удалить коментарий'
+    add_comment: 'Добавить Коментарий'
+    add: 'Добавить'
+    news: 'Новости'
+    new_news: 'Новая Новость'
+  user:
+    add_info: "Добавить информацию"
+    change_info: "Изменить информацию"
+    delete_info: "Удалить информацию"
+    create_company: "Созданные Компании"
+    new_info: "Новые данные"
+  header:
+    company: "Компании"
+    ccompany: "Создать компанию"
+    category: "Категории"
+    user: "Пользователь"
+    exit: "Выход"
+    entry: "Вход"
+    registration: 'Регистрация'
+    search: "Поиск"
+    tags: "Теги"
+    categories: "Категории"
   common:
     back: 'Назад'
     create: "Создать"

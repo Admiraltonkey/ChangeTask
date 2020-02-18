@@ -1,6 +1,6 @@
 <h1 class="green"><%= t('.title') %></h1>
 <% if user_signed_in?%>
-  <%= link_to 'Новая Компания', new_admin_post_path, class: 'btn btn-outline-primary btn-sm'  %>
+  <%= link_to t('header.ccompany'), new_admin_post_path, class: 'btn btn-outline-primary btn-sm'  %>
 <% end %>
 <section id="posts">
   <%= render @posts %>

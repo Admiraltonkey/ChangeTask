@@ -1,21 +1,21 @@
-<h1 class="green">Изменение данных</h1>
+<h1 class="green"><%= t('user.change_info') %></h1>
 
 <%= form_for([@user, @about]) do |f| %>
   <div class="form-group green">
-    <%= f.label :name %>
+    <%= f.label t('activerecord.attributes.user.name') %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="form-group green">
-    <%= f.label :surname %>
+    <%= f.label t('activerecord.attributes.user.surname') %>
     <%= f.text_field :surname, class: 'form-control' %>
   </div>
   <div class="form-group green">
-    <%= f.label :city %>
+    <%= f.label t('activerecord.attributes.user.city') %>
     <%= f.text_field :city, class: 'form-control' %>
   </div>
   <div class="form-group green">
-    <%= f.label :data %>
+    <%= f.label t('activerecord.attributes.user.data') %>
     <%= f.date_field :data, class: 'form-control' %>
   </div>
-  <%= f.submit "Изменить",class: 'btn btn-primary' %>
+  <%= f.submit t('common.edit'),class: 'btn btn-primary' %>
 <% end %>

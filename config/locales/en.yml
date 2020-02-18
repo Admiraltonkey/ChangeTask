@@ -1,4 +1,32 @@
 en:
+  company:
+    change: 'Change'
+    delete: 'Delete'
+    add_news: 'Add News'
+    reviews: 'Add reviews'
+    all_comments: 'All Comments'
+    delete_cooment: 'Delete comment'
+    add_comment: 'Add Comment'
+    add: 'Add'
+    news: 'News'
+    new_news: 'New News'
+  user:
+    add_info: "Add Information"
+    change_info: "Change Information"
+    delete_info: "Delete Information"
+    create_company: "Created Company"
+    new_info: "New Information"
+  header:
+    company: 'Company'
+    ccompany: "Create Company"
+    category: "Categories"
+    user: "User"
+    exit: "Exit"
+    entry: "Entry"
+    registration: "Registration"
+    search: "Search"
+    tags: "Tags"
+    categories: "Categories"
   common:
     errors: 'You have errors'
     back: 'Back'

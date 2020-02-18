@@ -11,6 +11,16 @@ ru:
       category:
         name: 'Название'
         parent_id: 'Категория родитель'
+        change: 'Изменить'
+        delete: 'Удалить'
+      user:
+        name: 'Имя'
+        surname: 'Фамилия'
+        city: 'Город'
+        data: 'Дата Рождения'
+      news:
+        title: 'Название'
+        body: 'Содержание'
     errors:
       messages:
         blank: 'не может быть пустым'
