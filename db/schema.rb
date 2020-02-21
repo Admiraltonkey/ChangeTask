@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_103741) do
+ActiveRecord::Schema.define(version: 2020_02_21_114017) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "name"
@@ -74,6 +74,9 @@ ActiveRecord::Schema.define(version: 2020_02_17_103741) do
     t.integer "category_id"
     t.string "url"
     t.integer "user_id"
+    t.float "current_donate", default: 0.0
+    t.float "desired_donate", default: 0.0
+    t.date "date"
     t.index ["category_id"], name: "index_posts_on_category_id"
   end
 

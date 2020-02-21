@@ -1,6 +1,7 @@
-<%= link_to t('user.change_info'), edit_user_about_path(about.user, about), class: 'btn btn-outline-primary btn-sm' %>
-<%= link_to t('user.delete_info'), user_about_path(about.user, about), method: :delete, class: 'btn btn-outline-primary btn-sm' %>
+<%= link_to t('user.change_info'), edit_user_about_path(about.user, about),class:"badge badge-secondary" %>
+|
+<%= link_to t('user.delete_info'), user_about_path(about.user, about), method: :delete,class:"badge badge-danger" %>
 <h1 class="green"><%= about.name %></h1>
-<h2 class="green"><%= about.surname %></h2>
-<h3 class="green"><%= about.city %></h3>
+<h1 class="green"><%= about.surname %></h1>
+<h5 class="green"><%= about.city %></h5>
 <data class="green"><%= about.data %></data>

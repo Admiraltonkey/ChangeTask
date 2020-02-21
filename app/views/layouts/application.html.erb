@@ -13,16 +13,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="dark">
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <div>
-      <% if cookies[:moon] %>
-        <%= button_to 'Light Mode', sun_path, method: :get, class:"btn btn-light" %>
-      <% else %>
-        <%= button_to 'Dark Mode', moon_path, method: :get, class:"btn btn-dark" %>
-      <% end %>
-    </div>
-    <h5 class="my-0 mr-md-auto font-weight-normal">MyTask </h5>
+    <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "My Task", '/top' %></h5>
     <%= form_tag posts_path, :method => 'get' do %>
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag t('header.search'), class: 'btn btn-success' %>
@@ -56,8 +49,15 @@
     <span class = "nav-item <%=' active' if I18n.locale == :en %>">
       <%= link_to "EN", {locale: :en}, class: "nav-link" %>
     </span>
+    <div>
+      <% if cookies[:moon] %>
+        <%= button_to 'Light Mode', sun_path, method: :get, class:"btn btn-light" %>
+      <% else %>
+        <%= button_to 'Dark Mode', moon_path, method: :get, class:"btn btn-dark" %>
+      <% end %>
     </div>
-<div class="dark">
+    </div>
+<div>
     <div class="container main">
       <div class="row">
         <div class="col-md-12">

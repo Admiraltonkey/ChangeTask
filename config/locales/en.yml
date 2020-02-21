@@ -1,8 +1,16 @@
 en:
+  toplist:
+    top_reviews: 'Top company for reviews'
+    top_last: 'Last update'
   company:
+    pay_add: 'Pay company'
+    pay: 'Pay'
+    expiration_date: "Expiration date"
+    pledge: "Amount of money"
     change: 'Change'
     delete: 'Delete'
     add_news: 'Add News'
+    change_news: 'Edit'
     reviews: 'Add reviews'
     all_comments: 'All Comments'
     delete_cooment: 'Delete comment'

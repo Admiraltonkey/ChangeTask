@@ -1,8 +1,16 @@
 ru:
+  toplist:
+    top_reviews: 'Топ компаний по рейтингу'
+    top_last: 'Последние созданные'
   company:
+    pay_add: 'Положить на счёт'
+    pay: 'Произвести оплату'
+    expiration_date: "Дата окончания"
+    pledge: "Собрано средств"
     change: 'Изменить'
     delete: 'Удалить'
     add_news: 'Добавить новость'
+    change_news: 'Изменить новость'
     reviews: 'Добавить рейтинг'
     all_comments: 'Все коментарии'
     delete_comment: 'Удалить коментарий'

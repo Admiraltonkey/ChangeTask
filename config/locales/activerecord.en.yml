@@ -8,6 +8,9 @@ en:
         summary: 'Summary'
         body: 'Body'
         all_tags: 'Tags'
+        url: 'Link'
+        date: 'Data'
+        desired_donate: 'Desired donate'
       category:
         name: 'Title'
         parent_id: 'Parent category'

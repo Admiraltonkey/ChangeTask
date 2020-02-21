@@ -2,6 +2,10 @@
 <article class="post">
   <section class="post-head">
     <h1 class="green"><%= @post.title %></h1>
+    <h3 class="green"><%= t('company.pledge') %>:</h3>
+    <h4><%= @post.current_donate %>$/<%= @post.desired_donate %>$</h4>
+    <div class="green"><%= t('company.expiration_date') %>:</div>
+    <span><%= @post.date %></span>
     <div class="average-review-rating" data-score="<%= @average_review %>"></div>
     <span class="green">Based on <%= @post.reviews.count %> reviews</span>
     <small>
@@ -25,7 +29,7 @@
   </div>
   <section class="post-body">
     <%= image_tag @post.image.url(:large), class: 'img-show' if @post.image? %>
-    <%= @post.body.html_safe %>
+    <div class="green"><%= @post.body.html_safe %></div>
   </section>
   <section>
     <% if @post.url.present? %>
@@ -38,6 +42,7 @@
 <% @post.comments.each do |comment| %>
   <div class='alert alert-light'>
     <p><strong><%= comment.username %></strong>: <%= comment.body %>
+      <% if user_signed_in? %>
     </p><%= link_to t('company.delete_comment'), [comment.post, comment], method: :delete %>
     <% pre_like = comment.likes.find { |like| like.user_id == current_user.id } %>
     <% if pre_like %>
@@ -45,6 +50,7 @@
     <% else %>
       <%= button_to 'Like', comment_likes_path(comment), method: :post, class:"btn btn-outline-info" %>
     <% end %>
+      <% end %>
   </div>
 <% end %>
 <hr>
@@ -64,8 +70,15 @@
     </div>
   <% end %>
 <% end %>
+<% if @post.news.present? %>
 <h1 class="green"><%= t('company.news') %></h1>
 <%= render @post.news %>
+<% end %>
+<% if user_signed_in? %>
+<div class="button">
+<%= button_to t('company.pay'), "#{@post.id}/donate", method: :get, class: 'btn btn-primary' %>
+</div>
+  <% end %>
 
 <script>
     $('.review-rating').raty({

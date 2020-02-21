@@ -1,9 +1,9 @@
-<h1 class="green"><%= @user.email %></h1>
-<%= link_to t('user.add_info'), new_user_about_path(@user), class: 'btn btn-outline-primary btn-sm' %>
+<h5 class="green"><%= @user.email %></h5>
+<%= link_to t('user.add_info'), new_user_about_path(@user),class:"badge badge-primary"%>
 <%= render @user.abouts %>
 
 
-<h1 class="green"><%= t('user.create_company') %></h1>
+<h3 class="green"><%= t('user.create_company') %></h3>
 <% @user_posts.each do |post| %>
   <%= link_to post.title, post_path(post) %>
 <% end %>

@@ -1,0 +1,11 @@
+<%= form_for([@post, @news]) do |f| %>
+  <div class="form-group green">
+    <%= f.label t('activerecord.attributes.news.title') %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group green">
+    <%= f.label t('activerecord.attributes.news.body') %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+  <%= f.submit t('company.change_news'),class: 'btn btn-primary' %>
+<% end %>

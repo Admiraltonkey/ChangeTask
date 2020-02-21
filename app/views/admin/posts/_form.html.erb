@@ -27,12 +27,22 @@
   </div>
 
   <div class="form-group green">
+    <%= f.label :desired_donate %>
+    <%= f.text_area :desired_donate, class: 'form-control' %>
+  </div>
+
+  <div class="form-group green">
+    <%= f.label :date %>
+    <%= f.date_field :date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group green">
     <%= f.label :url %>
     <%= f.text_area :url, class: 'form-control' %>
   </div>
 
   <div class="form-group green">
-    <%= f.label :category_id %>
+    <%= f.label t('admin.categories.index.title') %>
     <%= f.collection_select :category_id, Category.order(:name), :id, :name, { include_blank: true}, class: 'form-control' %>
   </div>
 
