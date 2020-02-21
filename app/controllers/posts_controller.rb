@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def top
     @posts = Post.all
-    @top = @posts.sort_by { |post| post.reviews.average(:rating).round(2) }.last(3)
+    @top = @posts.sort_by { |post| post.reviews.average(:rating) }.last(3)
     @last = @posts.first(3)
   end
 

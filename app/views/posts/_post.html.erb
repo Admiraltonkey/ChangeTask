@@ -17,9 +17,13 @@
   </section>
   <section class="post-summary clearfix">
     <%= image_tag post.image.url(:thumb), class: 'img-thumbnail thumb' if post.image? %>
+    <%= your_variable = (post.current_donate / post.desired_donate) * 100 %>
     <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width:<%= post.current_donate %>%;" aria-valuenow="<%= post.current_donate %>" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:<%= your_variable %>%;"></div>
     </div>
+<!--    <div class="progress">-->
+<!--      <div class="progress-bar" role="progressbar" style="width:<%#= post.current_donate %>%;" aria-valuenow="<%#= post.current_donate %>" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--    </div>-->
     <div class="green" ><%= post.summary  %></div>
   </section>
 
@@ -27,3 +31,4 @@
     <%= raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'badge badge-primary'}.join(' ') %>
   </section>
 </article>
+
