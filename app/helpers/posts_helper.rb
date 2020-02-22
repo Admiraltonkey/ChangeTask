@@ -6,4 +6,12 @@ module PostsHelper
       yield(tag, classes[index.round])
     end
   end
+
+  def average_reviews(post)
+    if post.reviews.blank?
+      0
+    else
+      post.reviews.average(:rating).round(2)
+    end
+  end
 end

@@ -1,4 +1,4 @@
-<%= form_for([@post, @post.news.build]) do |f| %>
+<%= form_for [@post, @post.news.build],html: { multipart:true} do |f| %>
   <div class="form-group green">
     <%= f.label t('activerecord.attributes.news.title') %>
     <%= f.text_field :title, class: 'form-control' %>
@@ -6,6 +6,9 @@
   <div class="form-group green">
     <%= f.label t('activerecord.attributes.news.body') %>
     <%= f.text_area :body, class: 'form-control' %>
+  </div>
+  <div class="form-group green">
+    <%= f.file_field :img %>
   </div>
   <%= f.submit t('company.add_news'),class: 'btn btn-primary' %>
 <% end %>

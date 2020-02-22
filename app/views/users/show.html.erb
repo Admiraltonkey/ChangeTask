@@ -7,3 +7,5 @@
 <% @user_posts.each do |post| %>
   <%= link_to post.title, post_path(post) %>
 <% end %>
+
+<%= button_to "Удалить аккаунт", user_path(@user), method: :delete, data: {confirm: "Are you sure?"},class: 'btn btn-primary', style:"margin: 20px 0 50px" %>

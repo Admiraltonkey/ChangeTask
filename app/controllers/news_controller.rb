@@ -34,7 +34,7 @@ class NewsController < ApplicationController
   end
   private
   def news_params
-    params.require(:news).permit(:title, :body)
+    params.require(:news).permit(:title, :body, :img)
   end
   def find_post
     @post = Post.find(params[:post_id])
