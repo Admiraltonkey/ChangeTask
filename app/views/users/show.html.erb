@@ -1,6 +1,9 @@
 <h5 class="green"><%= @user.email %></h5>
+<% if @user.abouts.empty? %>
 <%= link_to t('user.add_info'), new_user_about_path(@user), class: "badge badge-primary" %>
+  <% else %>
 <%= render @user.abouts %>
+  <% end %>
 
 
 <h3 class="green"><%= t('user.create_company') %></h3>
@@ -8,4 +11,4 @@
   <%= link_to post.title, post_path(post) %>
 <% end %>
 
-<%= button_to "Удалить аккаунт", user_path(@user), method: :delete, data: {confirm: "Are you sure?"},class: 'btn btn-primary', style:"margin: 20px 0 50px" %>
+<%= button_to t('user.account'), user_path(@user), method: :delete, data: {confirm: "Are you sure?"},class: 'btn btn-primary', style:"margin: 20px 0 50px" %>

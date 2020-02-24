@@ -2,7 +2,11 @@
   <%= image_tag news.img.url(:thumb), class: 'img-thumbnail thumb' if news.img? %>
   <h3 class="green "><%= news.title %></h3>
   <div class="green "><%= news.body %></div>
-  <%= link_to t('company.change'), edit_post_news_path(news.post, news),class:"badge badge-secondary" %>
-  |
-  <%= link_to t('company.delete'), post_news_path(news.post, news), method: :delete,class:"badge badge-danger" %>
+  <% if user_signed_in? && @post.user.id == current_user.id %>
+  <section>
+    <%= link_to t('company.change'), edit_post_news_path(news.post, news),class:"badge badge-secondary" %>
+    |
+    <%= link_to t('company.delete'), post_news_path(news.post, news), method: :delete,class:"badge badge-danger" %>
+  </section>
+    <% end %>
 </div>

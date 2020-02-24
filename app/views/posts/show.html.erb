@@ -24,9 +24,11 @@
       <% end %>
     </small>
   </section>
+  <% if user_signed_in? %>
   <div>
-    <%= link_to t('company.reviews'), new_post_review_path(@post), class: "badge badge-success" %>
+    <%= link_to t('company.reviews'), new_post_review_path(@post), class: "badge badge-success",style:"margin: 10px 0 "  %>
   </div>
+    <% end %>
   <section class="post-body">
     <%= image_tag @post.image.url(:large), class: 'img-show' if @post.image? %>
     <div class="green"><%= @post.body.html_safe %></div>
@@ -44,13 +46,13 @@
     <p><strong><%= comment.username %></strong>: <%= comment.body %>
       <% if user_signed_in? %>
         </p><%= link_to t('company.delete_comment'), [comment.post, comment], method: :delete %>
+      <% end %>
         <% pre_like = comment.likes.find { |like| like.user_id == current_user.id } %>
         <% if pre_like %>
           <%= button_to 'Unlike', comment_like_path(comment, pre_like), method: :delete, class: "btn btn-outline-secondary" %>
         <% else %>
           <%= button_to 'Like', comment_likes_path(comment), method: :post, class: "btn btn-outline-info" %>
         <% end %>
-      <% end %>
       </div>
 <% end %>
 <hr>

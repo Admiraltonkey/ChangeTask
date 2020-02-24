@@ -1,4 +1,7 @@
 ru:
+  devise:
+    registration: 'Регистрация'
+    log: "Вход"
   toplist:
     top_reviews: 'Топ компаний по рейтингу'
     top_last: 'Последние созданные'
@@ -24,6 +27,7 @@ ru:
     delete_info: "Удалить информацию"
     create_company: "Созданные Компании"
     new_info: "Новые данные"
+    account: 'Удалить аккаунт'
   header:
     company: "Компании"
     ccompany: "Создать компанию"

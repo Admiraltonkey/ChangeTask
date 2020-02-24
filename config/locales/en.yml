@@ -1,4 +1,7 @@
 en:
+  devise:
+    registration: 'Registration'
+    log: 'Log in'
   toplist:
     top_reviews: 'Top company for reviews'
     top_last: 'Last update'
@@ -24,6 +27,7 @@ en:
     delete_info: "Delete Information"
     create_company: "Created Company"
     new_info: "New Information"
+    account: 'Delete account'
   header:
     company: 'Company'
     ccompany: "Create Company"

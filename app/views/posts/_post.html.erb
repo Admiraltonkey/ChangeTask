@@ -20,7 +20,7 @@
     <%= image_tag post.image.url(:thumb), class: 'img-thumbnail thumb' if post.image? %>
     <% your_variable = (post.current_donate / post.desired_donate) * 100 %>
     <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:<%= your_variable %>%;"><%= your_variable %></div>
+      <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:<%= your_variable %>%;"><%= your_variable.round(2) %>%</div>
     </div>
     <div class="green" ><%= post.summary  %></div>
   </section>
