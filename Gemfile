@@ -5,7 +5,7 @@ ruby '2.6.5'
 
 gem 'bootstrap', '~> 4.4.1'
 gem 'tether-rails'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem "mini_magick"
 gem 'trix-rails', require: 'trix'
 gem 'will_paginate', '~> 3.1.0'
